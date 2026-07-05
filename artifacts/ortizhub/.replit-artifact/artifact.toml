@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "OrtizHub"
+version = "1.0.0"
+id = "artifacts/ortizhub"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25688
+
+[services.development]
+run = "pnpm --filter @workspace/ortizhub run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ortizhub", "run", "build" ]
+publicDir = "artifacts/ortizhub/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25688"
+BASE_PATH = "/"

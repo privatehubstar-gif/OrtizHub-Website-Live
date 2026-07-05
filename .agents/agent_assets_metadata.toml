@@ -1,0 +1,50 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "fdflFiQt1Nfkd6tw3-wJC"
+uri = "file://artifacts/ortizhub/public/images/logo.png"
+type = "image"
+title = "OrtizHub premium minimalist logo wordmark"
+
+[[generated]]
+id = "wIkm1u8p5UhoxQs6KZppH"
+uri = "file://artifacts/ortizhub/public/images/book-eat-to-heal.png"
+type = "image"
+title = "Eat to Heal book cover"
+
+[[generated]]
+id = "YystOTerTawbGV5iPJhAj"
+uri = "file://artifacts/ortizhub/public/images/book-discipline.png"
+type = "image"
+title = "The Discipline Within cover"
+
+[[generated]]
+id = "-dHyZ7Wn-DoicUJAdjM1o"
+uri = "file://artifacts/ortizhub/public/images/book-born-to-build.png"
+type = "image"
+title = "Born to Build book cover"
+
+[[generated]]
+id = "eXDxlyuTH0dzWW1IHOgP8"
+uri = "file://artifacts/ortizhub/public/images/prod-course.png"
+type = "image"
+title = "Premium digital course mockup"
+
+[[generated]]
+id = "gkE6ZZ0Jr1Bp_MI7C_tgm"
+uri = "file://artifacts/ortizhub/public/images/prod-guide.png"
+type = "image"
+title = "Premium digital guide mockup"
+
+[[generated]]
+id = "AjEqdxTzgrq95sXHtDqKH"
+uri = "file://artifacts/ortizhub/public/images/prod-template.png"
+type = "image"
+title = "Notion template premium mockup"
+
+[[generated]]
+id = "87_N42mCzfn31tOrw5zvR"
+uri = "file://artifacts/ortizhub/public/images/hero-bg.png"
+type = "image"
+title = "Hero background abstract gold"
