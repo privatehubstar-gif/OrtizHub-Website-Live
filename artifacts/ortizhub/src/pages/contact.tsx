@@ -15,6 +15,26 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const socialLinks = {
+  youtube: "https://youtube.com/@ortizimanajnr",
+  linkedin: "https://www.linkedin.com/in/ortiz-imana-jnr",
+  x: "https://twitter.com/ImanaJunior1",
+};
+
+const subjectOptions = [
+  { value: "books", label: "Books" },
+  { value: "products", label: "Products" },
+  { value: "coaching", label: "Coaching" },
+  { value: "general", label: "General Inquiry" },
+];
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -22,6 +42,9 @@ const formSchema = z.object({
   }),
   email: z.string().email({
     message: "Please enter a valid email address.",
+  }),
+  subject: z.enum(["books", "products", "coaching", "general"], {
+    message: "Please select a subject.",
   }),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
@@ -36,6 +59,7 @@ export default function Contact() {
     defaultValues: {
       name: "",
       email: "",
+      subject: undefined,
       message: "",
     },
   });
@@ -55,7 +79,7 @@ export default function Contact() {
         
         {/* Left Col - Info */}
         <div>
-          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Get in <span className="text-primary">Touch.</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-12">
@@ -64,7 +88,7 @@ export default function Contact() {
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-lg font-serif text-white mb-4">Direct Communication</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Direct Communication</h3>
               <a href="mailto:contact@ortizhub.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors text-lg">
                 <Mail size={20} />
                 contact@ortizhub.com
@@ -72,15 +96,15 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="text-lg font-serif text-white mb-4">The Network</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">The Network</h3>
               <div className="flex gap-4">
-                <a href="#" aria-label="YouTube" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
                   <Youtube size={20} />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
                   <Linkedin size={20} />
                 </a>
-                <a href="#" aria-label="X (Twitter)" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                <a href={socialLinks.x} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
                   <Twitter size={20} />
                 </a>
               </div>
@@ -95,7 +119,7 @@ export default function Contact() {
               <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary">
                 <Mail size={32} />
               </div>
-              <h3 className="text-3xl font-serif text-white mb-4">Message Received.</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">Message Received.</h3>
               <p className="text-muted-foreground">
                 Thank you for reaching out. The team will get back to you shortly.
               </p>
@@ -146,6 +170,31 @@ export default function Contact() {
                     </FormItem>
                   )}
                 />
+
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white uppercase tracking-widest text-xs">Subject</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-background border-border h-12 rounded-none focus:ring-primary">
+                            <SelectValue placeholder="Select a subject" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {subjectOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 
                 <FormField
                   control={form.control}
@@ -171,7 +220,7 @@ export default function Contact() {
                   className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-none uppercase tracking-widest font-bold text-base mt-4"
                   disabled={form.formState.isSubmitting}
                 >
-                  {form.formState.isSubmitting ? "Sending..." : "Submit Message"}
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>

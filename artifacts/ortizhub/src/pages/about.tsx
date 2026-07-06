@@ -11,35 +11,32 @@ export default function About() {
         <span className="text-primary tracking-widest text-sm uppercase font-semibold mb-4 block">
           The Origin
         </span>
-        <h1 className="text-5xl md:text-7xl font-serif text-white mb-12 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-12 leading-tight">
           Built from the <span className="text-primary">Ground Up.</span>
         </h1>
 
         <div className="prose prose-invert prose-lg max-w-none">
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Ortiz Imana Jnr didn't start with a playbook. As a first-generation builder, every lesson was learned through trial, error, and uncompromising discipline — not inherited, not handed down, not taught in a classroom. OrtizHub was created to be the playbook he never had: the one place first-gen builders, faith-driven entrepreneurs, and young creators can go to actually heal, build discipline, and create real income, instead of piecing it together from a hundred different corners of the internet.
+            Ortiz Imana Jnr. is a Nigerian author, publisher, and digital entrepreneur — and the founder of Ortiz Hub Publishing. His work is dedicated to helping young creators and first-generation builders develop the clarity, discipline, and identity they need to build meaningful careers and lasting lives.
           </p>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Before there was a brand, there was a body that needed healing, a mind that needed structure, and a bank account that needed a plan. Ortiz built OrtizHub from that exact starting point — not from a position of having already arrived, but from someone still in the process, documenting the path in real time so others don't have to walk it blind.
-          </p>
-          
+
           <div className="my-16 h-px w-full bg-border" />
-          
-          <h2 className="text-3xl font-serif text-white mb-6">The Mission</h2>
+
+          <h2 className="text-3xl font-bold text-white mb-6">The Mission</h2>
           <p className="text-muted-foreground mb-8">
-            The mission is simple: to help first-gen builders, faith-driven entrepreneurs, and young creators break generational cycles through wisdom and wealth. We do this by focusing on three core pillars: Health, Discipline, and Legacy. 
+            To equip builders with the tools, frameworks, and mindset they need to break generational cycles and build legacies that outlast them.
           </p>
           <p className="text-muted-foreground mb-8">
             There are no shortcuts. There is no pretending. True wealth is built on a foundation of physical vitality and mental fortitude. We provide the digital products, literature, and insights required to build an undeniable life.
           </p>
 
           <blockquote className="border-l-2 border-primary pl-6 my-12 py-2">
-            <p className="text-2xl font-serif text-white italic m-0">
+            <p className="text-2xl font-semibold text-white italic m-0">
               "You cannot build a lasting legacy on a weak foundation. Your health is your first business. Your discipline is your greatest asset."
             </p>
           </blockquote>
 
-          <h2 className="text-3xl font-serif text-white mb-6">Why We Build</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Why We Build</h2>
           <p className="text-muted-foreground mb-8">
             We build to prove what's possible. To show the next generation that where you start does not dictate where you finish. Through our books and courses, we are transferring the wisdom of wealth creation and spiritual grounding to those hungry enough to execute.
           </p>

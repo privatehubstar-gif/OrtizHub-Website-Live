@@ -13,6 +13,20 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const footerLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/books", label: "Books" },
+  { href: "/digital-products", label: "Products" },
+  { href: "/contact", label: "Contact" },
+];
+
+const socialLinks = {
+  youtube: "https://youtube.com/@ortizimanajnr",
+  linkedin: "https://www.linkedin.com/in/ortiz-imana-jnr",
+  x: "https://twitter.com/ImanaJunior1",
+};
+
 export function Layout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -131,7 +145,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <div>
               <h4 className="font-serif text-lg mb-6 text-white">Navigate</h4>
               <ul className="flex flex-col gap-3">
-                {navLinks.map((link) => (
+                {footerLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -147,13 +161,13 @@ export function Layout({ children }: { children: ReactNode }) {
             <div>
               <h4 className="font-serif text-lg mb-6 text-white">Connect</h4>
               <div className="flex gap-4">
-                <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
                   <Youtube size={18} />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
                   <Linkedin size={18} />
                 </a>
-                <a href="#" aria-label="X (Twitter)" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
+                <a href={socialLinks.x} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
                   <Twitter size={18} />
                 </a>
               </div>
