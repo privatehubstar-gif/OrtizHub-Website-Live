@@ -31,6 +31,15 @@ const products = [
   }
 ];
 
+const freeResource = {
+  id: "clarity-reset",
+  title: "The 7-Day Clarity Reset",
+  category: "Free Guide",
+  description: "A free 7-day reset to clear the mental clutter, rebuild your daily discipline, and get you moving again. No fluff, just a day-by-day plan to help you reset your health, mindset, and habits before you build anything else.",
+  image: "/images/prod-guide.png",
+  gumroadLink: "#"
+};
+
 export default function DigitalProducts() {
   return (
     <div className="container mx-auto px-6 py-20 lg:py-32">
@@ -81,6 +90,40 @@ export default function DigitalProducts() {
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="mt-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 bg-secondary/30 border border-primary/30 rounded-xl p-8 lg:p-16"
+      >
+        <div className="w-full lg:w-1/3 flex justify-center">
+          <div className="relative w-full max-w-[320px] aspect-[4/5] bg-secondary rounded-lg overflow-hidden border border-border shadow-2xl">
+            <img
+              src={freeResource.image}
+              alt={freeResource.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-2/3 space-y-6">
+          <span className="text-xs text-primary font-bold uppercase tracking-widest">
+            {freeResource.category}
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-serif text-white">{freeResource.title}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            {freeResource.description}
+          </p>
+          <div className="pt-4">
+            <a href={freeResource.gumroadLink} className="inline-block">
+              <Button size="lg" className="h-14 px-8 bg-primary text-primary-foreground hover:bg-primary/90 text-base font-bold uppercase tracking-widest rounded-none">
+                Download Free on Gumroad
+              </Button>
+            </a>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }

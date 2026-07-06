@@ -17,14 +17,17 @@ export default function About() {
 
         <div className="prose prose-invert prose-lg max-w-none">
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Ortiz Imana Jnr didn't start with a playbook. As a first-generation builder, every lesson was learned through trial, error, and uncompromising discipline. OrtizHub was created to be the playbook he never had.
+            Ortiz Imana Jnr didn't start with a playbook. As a first-generation builder, every lesson was learned through trial, error, and uncompromising discipline — not inherited, not handed down, not taught in a classroom. OrtizHub was created to be the playbook he never had: the one place first-gen builders, faith-driven entrepreneurs, and young creators can go to actually heal, build discipline, and create real income, instead of piecing it together from a hundred different corners of the internet.
+          </p>
+          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            Before there was a brand, there was a body that needed healing, a mind that needed structure, and a bank account that needed a plan. Ortiz built OrtizHub from that exact starting point — not from a position of having already arrived, but from someone still in the process, documenting the path in real time so others don't have to walk it blind.
           </p>
           
           <div className="my-16 h-px w-full bg-border" />
           
           <h2 className="text-3xl font-serif text-white mb-6">The Mission</h2>
           <p className="text-muted-foreground mb-8">
-            The mission is simple: to help faith-driven entrepreneurs and young creators break generational cycles. We do this by focusing on three core pillars: Health, Discipline, and Legacy. 
+            The mission is simple: to help first-gen builders, faith-driven entrepreneurs, and young creators break generational cycles through wisdom and wealth. We do this by focusing on three core pillars: Health, Discipline, and Legacy. 
           </p>
           <p className="text-muted-foreground mb-8">
             There are no shortcuts. There is no pretending. True wealth is built on a foundation of physical vitality and mental fortitude. We provide the digital products, literature, and insights required to build an undeniable life.
@@ -39,6 +42,9 @@ export default function About() {
           <h2 className="text-3xl font-serif text-white mb-6">Why We Build</h2>
           <p className="text-muted-foreground mb-8">
             We build to prove what's possible. To show the next generation that where you start does not dictate where you finish. Through our books and courses, we are transferring the wisdom of wealth creation and spiritual grounding to those hungry enough to execute.
+          </p>
+          <p className="text-muted-foreground mb-8">
+            OrtizHub exists for the person who was never handed a roadmap — the first in their family to build a business, the believer trying to steward their gifts with integrity, the young creator tired of chasing trends with nothing to show for it. If that's you, you're already home.
           </p>
         </div>
       </motion.div>

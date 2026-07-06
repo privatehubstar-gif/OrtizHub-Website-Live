@@ -22,15 +22,25 @@ export default function Home() {
             <span className="text-primary tracking-[0.3em] text-sm md:text-base font-medium uppercase mb-6 block">
               Ortiz Imana Jnr
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold leading-tight mb-8">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-white font-bold leading-tight mb-8 tracking-tight">
               Create. <br className="md:hidden" />
               Grow. <br className="md:hidden" />
               <span className="text-primary">Rise.</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
               Helping builders break generational cycles through wisdom and wealth. 
               Health. Discipline. Legacy. No shortcuts. No pretending.
             </p>
+            <div className="flex items-center justify-center gap-4 sm:gap-8 mb-12">
+              {["Health", "Discipline", "Legacy"].map((value, i) => (
+                <span key={value} className="flex items-center gap-4 sm:gap-8">
+                  <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+                    {value}
+                  </span>
+                  {i < 2 && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                </span>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="/digital-products">
                 <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base tracking-wider uppercase font-semibold bg-primary text-primary-foreground hover:bg-primary/90">

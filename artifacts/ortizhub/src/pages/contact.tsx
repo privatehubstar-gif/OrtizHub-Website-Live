@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useState } from "react";
-import { Instagram, Youtube, Twitter, Mail } from "lucide-react";
+import { Youtube, Twitter, Linkedin, Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -74,19 +74,14 @@ export default function Contact() {
             <div>
               <h3 className="text-lg font-serif text-white mb-4">The Network</h3>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                <a href="#" aria-label="YouTube" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
                   <Youtube size={20} />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
-                  <Twitter size={20} />
+                <a href="#" aria-label="LinkedIn" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                  <Linkedin size={20} />
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
-                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                  </svg>
+                <a href="#" aria-label="X (Twitter)" className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all bg-secondary/50">
+                  <Twitter size={20} />
                 </a>
               </div>
             </div>
