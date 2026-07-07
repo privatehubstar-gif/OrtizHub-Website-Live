@@ -9,6 +9,8 @@ import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_17833
 import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
 import bundleImage from "@assets/IMG_6630_1783382977469.png";
+import readerMsg from "@assets/IMG_7114_1783389298542.jpeg";
+import kdpMsg from "@assets/IMG_6843_1783389213481.png";
 
 const FREE_GUIDE_LINK = "https://ortizhub.gumroad.com/l/scskwk";
 const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
@@ -26,6 +28,108 @@ const bundleBooks = [
   { title: "Born to Build", image: bornToBuildCover },
   { title: "The 7-Day Clarity Reset", image: clarityResetCover },
 ];
+
+function TestimonialsSection() {
+  return (
+    <section className="py-24 lg:py-32 border-t border-border">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center mb-16"
+        >
+          <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+            Reader Love
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            What Readers Are <span className="text-primary">Saying</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Real moments from real people who took the step.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Card 1 — Joshua */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col border border-border bg-secondary/30 overflow-hidden group hover:border-primary/40 transition-colors duration-300"
+          >
+            {/* Screenshot */}
+            <div className="relative overflow-hidden bg-black">
+              <img
+                src={readerMsg}
+                alt="Reader message about Joshua purchasing Eat to Heal on Amazon"
+                className="w-full object-cover object-top max-h-64 transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+            {/* Attribution */}
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <p className="text-white text-base leading-relaxed">
+                "Joshua — your friend — said he has patronized your book on Amazon."
+              </p>
+              <div className="flex items-center justify-between pt-2">
+                <div>
+                  <p className="text-white font-bold text-sm uppercase tracking-widest">Joshua</p>
+                  <p className="text-primary text-xs uppercase tracking-widest font-semibold mt-0.5">
+                    Eat to Heal · Verified Amazon Reader
+                  </p>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-primary text-sm">★</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2 — KDP Kindle milestone */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col border border-border bg-secondary/30 overflow-hidden group hover:border-primary/40 transition-colors duration-300"
+          >
+            {/* Screenshot */}
+            <div className="relative overflow-hidden bg-black">
+              <img
+                src={kdpMsg}
+                alt="KDP confirmation that Eat to Heal is live on the Kindle Store"
+                className="w-full object-cover object-top max-h-64 transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            </div>
+            {/* Attribution */}
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <p className="text-white text-base leading-relaxed">
+                "Congratulations — your book 'Eat to Heal' is now live and available for purchase in the Kindle Store."
+              </p>
+              <div className="flex items-center justify-between pt-2">
+                <div>
+                  <p className="text-white font-bold text-sm uppercase tracking-widest">Kindle Direct Publishing</p>
+                  <p className="text-primary text-xs uppercase tracking-widest font-semibold mt-0.5">
+                    Eat to Heal · Now on Amazon Kindle
+                  </p>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-black bg-primary px-3 py-1">
+                  Live
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function NewsletterSection() {
   const [email, setEmail] = useState("");
@@ -320,6 +424,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Newsletter Section */}
       <NewsletterSection />
