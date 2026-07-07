@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
 import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
@@ -25,6 +26,95 @@ const bundleBooks = [
   { title: "Born to Build", image: bornToBuildCover },
   { title: "The 7-Day Clarity Reset", image: clarityResetCover },
 ];
+
+function NewsletterSection() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/Imana.junior9@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email,
+          _subject: "New Newsletter Subscriber — OrtizHub",
+          message: `New subscriber: ${email}`,
+          _template: "table",
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section className="py-24 lg:py-32 border-t border-border">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <span className="text-primary text-xs font-bold uppercase tracking-widest mb-4 block">
+            Join the Community
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Get Wisdom Delivered <span className="text-primary">Weekly</span>
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            Insights on faith, discipline, and building a life of purpose — straight to your inbox. No spam. Just value.
+          </p>
+
+          {status === "success" ? (
+            <div className="border border-primary/40 bg-primary/10 rounded-none p-6">
+              <p className="text-primary font-bold text-lg uppercase tracking-widest mb-1">You're in!</p>
+              <p className="text-muted-foreground text-sm">Welcome to the OrtizHub community. Watch your inbox.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-0 max-w-md mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                required
+                disabled={status === "loading"}
+                className="flex-1 h-14 px-5 bg-secondary border border-border text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary text-sm disabled:opacity-60"
+              />
+              <Button
+                type="submit"
+                disabled={status === "loading"}
+                className="h-14 px-8 bg-primary text-black hover:bg-primary/90 text-sm font-bold uppercase tracking-widest rounded-none border-0 disabled:opacity-60"
+              >
+                {status === "loading" ? "Subscribing…" : "Subscribe"}
+              </Button>
+            </form>
+          )}
+
+          {status === "error" && (
+            <p className="mt-4 text-sm text-red-400">Something went wrong. Please try again.</p>
+          )}
+
+          <p className="mt-6 text-xs text-muted-foreground uppercase tracking-widest">
+            No spam · Unsubscribe anytime
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -230,6 +320,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
 
       {/* Free Lead Magnet Section */}
       <section className="py-24 lg:py-32 bg-secondary/30 border-t border-border">
