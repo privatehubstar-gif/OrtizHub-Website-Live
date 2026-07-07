@@ -9,6 +9,7 @@ import { Layout } from "@/components/layout";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import Books from "@/pages/books";
+import BookDetail from "@/pages/book-detail";
 import DigitalProducts from "@/pages/digital-products";
 import Blog from "@/pages/blog";
 import Contact from "@/pages/contact";
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/books" component={Books} />
+        <Route path="/books/:id" component={BookDetail} />
         <Route path="/digital-products" component={DigitalProducts} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />

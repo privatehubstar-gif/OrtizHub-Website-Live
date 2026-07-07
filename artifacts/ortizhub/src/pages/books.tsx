@@ -1,54 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
-import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
-import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
-import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
-import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+import { books } from "@/data/books";
 import bundleImage from "@assets/IMG_6630_1783382977469.png";
-
-const books = [
-  {
-    id: "eat-to-heal",
-    title: "Eat to Heal",
-    description: "A practical guide to reducing inflammation and reclaiming your health naturally.",
-    image: eatToHealCover,
-    link: "https://a.co/d/0hBIKX4t",
-  },
-  {
-    id: "blessed-boy",
-    title: "Blessed Boy",
-    description: "Faith. Gratitude. Grace. A personal journey of waiting, trusting, and growing.",
-    image: blessedBoyCover,
-    link: "https://a.co/d/05uXGvwh",
-  },
-  {
-    id: "the-discipline-within",
-    title: "The Discipline Within",
-    description: "How to build unbreakable self-discipline from the inside out — identity before action.",
-    image: disciplineWithinCover,
-    link: "https://a.co/d/04EKh3OG",
-  },
-  {
-    id: "born-to-build",
-    title: "Born to Build",
-    description: "The power within you to create, grow, and rise — a blueprint for first-gen builders.",
-    image: bornToBuildCover,
-    link: "https://a.co/d/0bN282cf",
-  },
-  {
-    id: "the-7-day-clarity-reset",
-    title: "The 7-Day Clarity Reset",
-    description: "Build focus, discipline, and identity in a noisy world — 7 days to clarity.",
-    image: clarityResetCover,
-    link: "https://a.co/d/0fEFI0LI",
-  },
-];
 
 export default function Books() {
   return (
     <div className="container mx-auto px-6 py-20 lg:py-32">
       <div className="max-w-3xl mx-auto text-center mb-24">
+        <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+          The Collection
+        </span>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
           My Books — <span className="text-primary">Available on Amazon</span>
         </h1>
@@ -69,28 +32,51 @@ export default function Books() {
               index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
             } items-center`}
           >
+            {/* Cover — clickable */}
             <div className="w-full lg:w-1/2 flex justify-center">
-              <div className="relative w-full max-w-[400px] aspect-[3/4] bg-secondary rounded-lg overflow-hidden border border-border shadow-2xl group">
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
+              <Link href={`/books/${book.id}`}>
+                <div className="relative w-full max-w-[400px] aspect-[3/4] bg-secondary rounded-lg overflow-hidden border border-border shadow-2xl group cursor-pointer">
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+                      View Details <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </div>
 
             <div className="w-full lg:w-1/2 space-y-6">
+              <span className="text-primary text-xs font-bold uppercase tracking-widest">
+                {book.category}
+              </span>
               <h2 className="text-4xl lg:text-5xl font-bold text-white">{book.title}</h2>
               <p className="text-sm text-muted-foreground uppercase tracking-widest">By Ortiz Imana Jnr</p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {book.description}
               </p>
-              <div className="pt-6">
-                <a href={book.link} target="_blank" rel="noopener noreferrer" className="inline-block">
-                  <Button size="lg" className="h-14 px-8 bg-white text-black hover:bg-white/90 text-base font-bold uppercase tracking-widest rounded-none">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href={book.link} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto h-14 px-8 bg-white text-black hover:bg-white/90 text-base font-bold uppercase tracking-widest rounded-none"
+                  >
                     Buy on Amazon
                   </Button>
                 </a>
+                <Link href={`/books/${book.id}`}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto h-14 px-8 border-border text-white hover:border-primary hover:text-primary text-base font-bold uppercase tracking-widest rounded-none transition-all gap-2"
+                  >
+                    View Details <ArrowRight size={16} />
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
