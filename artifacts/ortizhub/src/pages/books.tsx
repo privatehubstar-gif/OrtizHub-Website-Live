@@ -5,6 +5,7 @@ import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_178338
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
+import bundleImage from "@assets/IMG_6630_1783382977469.png";
 
 const books = [
   {
@@ -95,6 +96,63 @@ export default function Books() {
           </motion.div>
         ))}
       </div>
+
+      {/* Bundle Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.7 }}
+        className="mt-40 relative rounded-2xl overflow-hidden border border-primary/30"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+
+        <div className="flex flex-col lg:flex-row items-center gap-0">
+          <div className="w-full lg:w-1/2">
+            <img
+              src={bundleImage}
+              alt="The Ultimate Faith & Mindset Bundle"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="w-full lg:w-1/2 p-10 lg:p-16 space-y-6">
+            <p className="text-xs text-primary uppercase tracking-[0.3em] font-bold">Special Gumroad Offer</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+              The Ultimate Faith &amp; Mindset Bundle
+            </h2>
+            <p className="text-primary font-semibold uppercase tracking-widest text-sm">
+              Five Books for Transformation
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Get all five books in one package — bundled for maximum value. Everything you need to build faith, discipline, clarity, and legacy.
+            </p>
+            <ul className="space-y-2 text-muted-foreground">
+              {books.map((b) => (
+                <li key={b.id} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {b.title}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-4">
+              <a
+                href="https://ortizhub.gumroad.com/l/bundlevol1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button
+                  size="lg"
+                  className="h-14 px-10 bg-primary text-black hover:bg-primary/90 text-base font-bold uppercase tracking-widest rounded-none"
+                >
+                  Get the Bundle on Gumroad
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
