@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import eatToHealCover from "@assets/Untitled_design_1783382977469.jpeg";
+import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
 import disciplineWithinCover from "@assets/IMG_6630_1783382977469.png";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
-
-const AMAZON_AUTHOR_PAGE_URL = "https://www.amazon.com/author/ortiz_imanajnr9";
 
 const books = [
   {
@@ -14,35 +12,35 @@ const books = [
     title: "Eat to Heal",
     description: "A practical guide to reducing inflammation and reclaiming your health naturally.",
     image: eatToHealCover,
-    link: AMAZON_AUTHOR_PAGE_URL,
+    link: "https://a.co/d/0hBIKX4t",
   },
   {
     id: "blessed-boy",
     title: "Blessed Boy",
     description: "Faith. Gratitude. Grace. A personal journey of waiting, trusting, and growing.",
     image: blessedBoyCover,
-    link: AMAZON_AUTHOR_PAGE_URL,
+    link: "https://a.co/d/05uXGvwh",
   },
   {
     id: "the-discipline-within",
     title: "The Discipline Within",
     description: "How to build unbreakable self-discipline from the inside out — identity before action.",
     image: disciplineWithinCover,
-    link: AMAZON_AUTHOR_PAGE_URL,
+    link: "https://a.co/d/04EKh3OG",
   },
   {
     id: "born-to-build",
     title: "Born to Build",
     description: "The power within you to create, grow, and rise — a blueprint for first-gen builders.",
     image: bornToBuildCover,
-    link: AMAZON_AUTHOR_PAGE_URL,
+    link: "https://a.co/d/0bN282cf",
   },
   {
     id: "the-7-day-clarity-reset",
     title: "The 7-Day Clarity Reset",
     description: "Build focus, discipline, and identity in a noisy world — 7 days to clarity.",
     image: clarityResetCover,
-    link: AMAZON_AUTHOR_PAGE_URL,
+    link: "https://a.co/d/0fEFI0LI",
   },
 ];
 
