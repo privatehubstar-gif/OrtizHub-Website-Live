@@ -1,11 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import bundleImage from "@assets/IMG_6630_1783382977469.png";
+import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
+import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
+import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
+import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
+import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
+import geminiWorkbookCover from "@assets/IMG_6694_1783382977469.jpeg";
+
+const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
 
 const freeProduct = {
   id: "clarity-reset",
   title: "The 7-Day Clarity Reset",
   description: "A free 7-day reset to clear the mental clutter, rebuild your daily discipline, and get you moving again.",
-  image: "/images/prod-guide.png",
+  image: clarityResetCover,
   price: "Free",
   link: "https://ortizhub.gumroad.com/l/scskwk",
 };
@@ -15,7 +24,7 @@ const coreProducts = [
     id: "blessed-boy",
     title: "Blessed Boy",
     description: "Faith. Gratitude. Grace. A personal journey of waiting, trusting, and growing.",
-    image: "/images/prod-guide.png",
+    image: blessedBoyCover,
     price: "$7.99",
     link: "https://ortizhub.gumroad.com/l/xptrke",
   },
@@ -23,7 +32,7 @@ const coreProducts = [
     id: "eat-to-heal",
     title: "Eat to Heal",
     description: "A practical guide to reducing inflammation and reclaiming your health naturally.",
-    image: "/images/book-eat-to-heal.png",
+    image: eatToHealCover,
     price: "$9.99",
     link: "https://ortizhub.gumroad.com/l/eatheal",
   },
@@ -39,7 +48,7 @@ const coreProducts = [
     id: "the-discipline-within",
     title: "The Discipline Within",
     description: "How to build unbreakable self-discipline from the inside out — identity before action.",
-    image: "/images/book-discipline.png",
+    image: disciplineWithinCover,
     price: "$9.99",
     link: "https://ortizhub.gumroad.com/l/lnmudo",
   },
@@ -47,7 +56,7 @@ const coreProducts = [
     id: "born-to-build",
     title: "Born to Build",
     description: "The power within you to create, grow, and rise — a blueprint for first-gen builders.",
-    image: "/images/book-born-to-build.png",
+    image: bornToBuildCover,
     price: "$14.99",
     link: "https://ortizhub.gumroad.com/l/spymxn",
   },
@@ -59,18 +68,18 @@ const premiumProducts = [
     title: "Gemini Creator Formula Workbook",
     category: "Premium Workbook",
     description: "The complete workbook for turning your creative gifts into a repeatable system for income.",
-    image: "/images/prod-template.png",
+    image: geminiWorkbookCover,
     price: "$22.22",
     link: "https://ortizhub.gumroad.com/l/eilotl",
   },
   {
     id: "complete-library-bundle-vol-1",
-    title: "The Complete Library Bundle Vol. 1",
+    title: "The Ultimate Faith & Mindset Bundle Vol. 1",
     category: "Bundle",
-    description: "Every core book and workbook, bundled together at the best possible value.",
-    image: "/images/prod-course.png",
+    description: "Every core book bundled together at the best possible value — five books for transformation.",
+    image: bundleImage,
     price: "$34.99",
-    link: "https://ortizhub.gumroad.com/l/esokyq",
+    link: BUNDLE_LINK,
   },
 ];
 
@@ -80,6 +89,8 @@ const comingSoonProducts = [
   { id: "weekly-sprint-tracker", title: "Weekly Sprint Tracker", price: "$12.99" },
   { id: "gcf-masterclass", title: "GCF Masterclass", price: "$127" },
 ];
+
+const bundleBooks = ["Eat to Heal", "Blessed Boy", "The Discipline Within", "Born to Build", "The 7-Day Clarity Reset"];
 
 export default function DigitalProducts() {
   return (
@@ -92,6 +103,59 @@ export default function DigitalProducts() {
           Tactical systems, courses, and frameworks designed to accelerate your growth and build leverage.
         </p>
       </div>
+
+      {/* Featured Bundle Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7 }}
+        className="mb-24 relative rounded-2xl overflow-hidden border border-primary/40"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+        <div className="flex flex-col lg:flex-row items-center">
+          <div className="w-full lg:w-1/2 max-h-[420px] overflow-hidden">
+            <img
+              src={bundleImage}
+              alt="The Ultimate Faith & Mindset Bundle"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-full lg:w-1/2 p-10 lg:p-14 space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-black bg-primary font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                Special Offer
+              </span>
+              <span className="text-xs text-primary uppercase tracking-widest font-semibold">Gumroad Exclusive</span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+              The Ultimate Faith & Mindset Bundle
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Five books for transformation — bundled for maximum value. Everything you need to build faith, discipline, clarity, and legacy.
+            </p>
+            <ul className="space-y-1.5">
+              {bundleBooks.map((title) => (
+                <li key={title} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  {title}
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center gap-6 pt-2">
+              <span className="text-3xl font-bold text-white">$34.99</span>
+              <a href={BUNDLE_LINK} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="h-12 px-8 bg-primary text-black hover:bg-primary/90 text-sm font-bold uppercase tracking-widest rounded-none"
+                >
+                  Get the Bundle
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Free */}
       <section className="mb-24">
