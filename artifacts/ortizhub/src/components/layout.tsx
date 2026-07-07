@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Youtube, Twitter, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoImg from "@assets/80C3D8EF-992D-45BC-A5D9-F9E0860C73B5_1783385337180.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -56,8 +57,8 @@ export function Layout({ children }: { children: ReactNode }) {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="font-serif text-2xl font-bold tracking-wider text-white">
-            ORTIZ<span className="text-primary">HUB</span>
+          <Link href="/">
+            <img src={logoImg} alt="OrtizHub International" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -133,8 +134,8 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
-              <Link href="/" className="font-serif text-3xl font-bold tracking-wider text-white mb-4 block">
-                ORTIZ<span className="text-primary">HUB</span>
+              <Link href="/" className="inline-block mb-4">
+                <img src={logoImg} alt="OrtizHub International" className="h-14 w-auto" />
               </Link>
               <p className="text-muted-foreground max-w-sm mt-4 leading-relaxed">
                 Helping builders break generational cycles through wisdom and wealth.

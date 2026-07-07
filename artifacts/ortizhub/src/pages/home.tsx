@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
 import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
@@ -30,10 +31,14 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-40 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/hero-bg.png')" }}
-        />
+        <div className="absolute inset-0 z-0">
+          <img
+            src={ortizPhoto}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-top opacity-40"
+          />
+        </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center mt-20">

@@ -1,7 +1,27 @@
 import { motion } from "framer-motion";
+import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
+import logoImg from "@assets/80C3D8EF-992D-45BC-A5D9-F9E0860C73B5_1783385337180.png";
 
 export default function About() {
   return (
+    <div>
+      {/* Hero — photo + logo */}
+      <div className="relative w-full h-[60vh] min-h-[420px] overflow-hidden">
+        <img
+          src={ortizPhoto}
+          alt="Ortiz Imana Jnr — CEO, OrtizHub International"
+          className="w-full h-full object-cover object-[center_20%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full p-8 lg:p-16 flex flex-col lg:flex-row items-end lg:items-center justify-between gap-6">
+          <div>
+            <p className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-2">Founder & CEO</p>
+            <h1 className="text-4xl lg:text-6xl font-bold text-white">Ortiz Imana Jnr</h1>
+          </div>
+          <img src={logoImg} alt="OrtizHub International" className="h-16 lg:h-20 w-auto opacity-90" />
+        </div>
+      </div>
+
     <div className="container mx-auto px-6 py-20 lg:py-32 max-w-4xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -11,13 +31,13 @@ export default function About() {
         <span className="text-primary tracking-widest text-sm uppercase font-semibold mb-4 block">
           The Origin
         </span>
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-12 leading-tight">
+        <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 leading-tight">
           Built from the <span className="text-primary">Ground Up.</span>
-        </h1>
+        </h2>
 
         <div className="prose prose-invert prose-lg max-w-none">
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Ortiz Imana Jnr. is a Nigerian author, publisher, and digital entrepreneur — and the founder of Ortiz Hub Publishing. His work is dedicated to helping young creators and first-generation builders develop the clarity, discipline, and identity they need to build meaningful careers and lasting lives.
+            Ortiz Imana Jnr. is a Nigerian author, publisher, and digital entrepreneur — and the founder of Ortiz Hub International. His work is dedicated to helping young creators and first-generation builders develop the clarity, discipline, and identity they need to build meaningful careers and lasting lives.
           </p>
 
           <div className="my-16 h-px w-full bg-border" />
@@ -45,6 +65,7 @@ export default function About() {
           </p>
         </div>
       </motion.div>
+    </div>
     </div>
   );
 }
