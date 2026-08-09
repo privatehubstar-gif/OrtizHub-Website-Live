@@ -1,7 +1,8 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useEffect } from "react";
 import NotFound from "@/pages/not-found";
 import { Layout } from "@/components/layout";
 
@@ -15,6 +16,26 @@ import Blog from "@/pages/blog";
 import Contact from "@/pages/contact";
 
 const queryClient = new QueryClient();
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function AnalyticsPageView() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.gtag?.("event", "page_view", {
+      page_path: `${location}${window.location.search}`,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }, [location]);
+
+  return null;
+}
 
 function Router() {
   return (
@@ -38,6 +59,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <AnalyticsPageView />
           <Router />
         </WouterRouter>
         <Toaster />
