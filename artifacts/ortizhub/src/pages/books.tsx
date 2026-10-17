@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
-import { books } from "@/data/books";
+import { books, BUNDLE_LINK } from "@/data/books";
 import bundleImage from "@assets/IMG_6630_1783382977469.png";
 
 export default function Books() {
@@ -13,7 +13,7 @@ export default function Books() {
           The Collection
         </span>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-          My Books — <span className="text-primary">Available on Amazon</span>
+          My Books — <span className="text-primary">Available exclusively on Gumroad</span>
         </h1>
         <p className="text-xl text-muted-foreground">
           Foundational knowledge for the modern builder. Read to execute.
@@ -65,7 +65,7 @@ export default function Books() {
                     size="lg"
                     className="w-full sm:w-auto h-14 px-8 bg-white text-black hover:bg-white/90 text-base font-bold uppercase tracking-widest rounded-none"
                   >
-                    Buy on Amazon
+                    Get it on Gumroad
                   </Button>
                 </a>
                 <Link href={`/books/${book.id}`}>
@@ -108,10 +108,10 @@ export default function Books() {
               The Ultimate Faith &amp; Mindset Bundle
             </h2>
             <p className="text-primary font-semibold uppercase tracking-widest text-sm">
-              Five Books for Transformation
+              Complete Collection
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Get all five books in one package — bundled for maximum value. Everything you need to build faith, discipline, clarity, and legacy.
+              Every core book bundled together at the best possible value. Everything you need to build faith, discipline, clarity, and legacy.
             </p>
             <ul className="space-y-2 text-muted-foreground">
               {books.map((b) => (
@@ -123,7 +123,7 @@ export default function Books() {
             </ul>
             <div className="pt-4">
               <a
-                href="https://ortizhub.gumroad.com/l/bundlevol1"
+                href={BUNDLE_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"

@@ -3,6 +3,7 @@ import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_178338
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
+import { GUMROAD_LINKS } from "@/data/gumroad-links";
 
 export interface Book {
   id: string;
@@ -28,7 +29,7 @@ export const books: Book[] = [
     longDescription:
       "Most people are sick and don't know why. They take pills for symptoms while ignoring the root cause — their diet. Eat to Heal breaks down the science of inflammation, gut health, and the healing power of real food in a way that anyone can understand and apply. This is not a fad diet book. It is a lifestyle framework built on principles that work for any body, at any stage. Whether you are dealing with chronic fatigue, digestive issues, or simply want to perform at a higher level, this book gives you the tools to take full ownership of your health.",
     image: eatToHealCover,
-    link: "https://a.co/d/0hBIKX4t",
+    link: GUMROAD_LINKS.eatToHeal,
     themes: ["Nutrition", "Inflammation", "Gut Health", "Natural Healing"],
     whatYouWillLearn: [
       "How chronic inflammation silently destroys your energy and focus",
@@ -48,7 +49,7 @@ export const books: Book[] = [
     longDescription:
       "Blessed Boy is a deeply personal account of what it means to hold onto faith when the path is unclear, the wait is long, and the world tells you to give up. Ortiz Imana Jnr shares the lessons God taught him through seasons of uncertainty — about identity, gratitude, surrender, and the quiet power of trusting a plan bigger than your own. This is not a theology textbook. It is a raw, honest conversation about what real faith looks like in the middle of the grind. For anyone who believes they were made for more but cannot yet see how — this book is for you.",
     image: blessedBoyCover,
-    link: "https://a.co/d/05uXGvwh",
+    link: GUMROAD_LINKS.blessedBoy,
     themes: ["Faith", "Gratitude", "Patience", "Spiritual Growth"],
     whatYouWillLearn: [
       "How to maintain faith when results are delayed and doubt creeps in",
@@ -68,7 +69,7 @@ export const books: Book[] = [
     longDescription:
       "Most people try to build discipline the wrong way. They rely on motivation, routines, and willpower — all of which eventually fail. The Discipline Within argues that lasting discipline is not about what you do. It is about who you believe you are. Until your identity shifts, every habit system is just a temporary fix. This book walks you through the internal rewiring required to become someone for whom discipline is not a struggle but a natural expression of self. Practical, honest, and uncompromising — written for builders who are tired of starting over.",
     image: disciplineWithinCover,
-    link: "https://a.co/d/04EKh3OG",
+    link: GUMROAD_LINKS.disciplineWithin,
     themes: ["Self-Discipline", "Identity", "Habits", "Mental Strength"],
     whatYouWillLearn: [
       "Why willpower always fails and what to rely on instead",
@@ -88,7 +89,7 @@ export const books: Book[] = [
     longDescription:
       "Born to Build is the rallying cry for every first-generation builder who was told to get a stable job, play it safe, and not dream too big. Ortiz Imana Jnr dismantles the fear, the imposter syndrome, and the cultural conditioning that keeps talented people from building the businesses and legacies they were meant to create. This is not a business how-to book. It is a mindset reset — a declaration that the builder spirit in you is not a character flaw. It is your greatest asset. From laying foundations to scaling impact, this book walks you through what it truly means to build something from nothing.",
     image: bornToBuildCover,
-    link: "https://a.co/d/0bN282cf",
+    link: GUMROAD_LINKS.bornToBuild,
     themes: ["Entrepreneurship", "First-Gen Success", "Legacy", "Leadership"],
     whatYouWillLearn: [
       "How to overcome the fear and imposter syndrome holding you back",
@@ -108,7 +109,7 @@ export const books: Book[] = [
     longDescription:
       "The modern world is engineered to keep you distracted, reactive, and unclear about what you actually want. The 7-Day Clarity Reset is a structured, day-by-day guide to detoxing from the noise and reconnecting with your purpose, your priorities, and your power. Each day targets a different dimension of your life — from your digital habits to your morning rituals to your long-term vision. By day seven, you will not just feel clearer. You will have a written blueprint for the life you are building. Simple, actionable, and built for real people with real responsibilities.",
     image: clarityResetCover,
-    link: "https://a.co/d/0fEFI0LI",
+    link: GUMROAD_LINKS.clarityReset,
     themes: ["Focus", "Clarity", "Productivity", "Purpose"],
     whatYouWillLearn: [
       "A day-by-day framework to eliminate distraction and regain deep focus",
@@ -120,4 +121,4 @@ export const books: Book[] = [
   },
 ];
 
-export const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
+export const BUNDLE_LINK = GUMROAD_LINKS.bundle;

@@ -3,7 +3,9 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Youtube, Twitter, Linkedin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoImg from "@assets/80C3D8EF-992D-45BC-A5D9-F9E0860C73B5_1783385337180.png";
+import { AUTHOR_BIO } from "@/data/site";
+
+const logoImg = "/images/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -57,8 +59,8 @@ export function Layout({ children }: { children: ReactNode }) {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href="/">
-            <img src={logoImg} alt="OrtizHub International" className="h-10 w-auto" />
+          <Link href="/" aria-label="OrtizHub International home" className="inline-flex shrink-0">
+            <img src={logoImg} alt="OrtizHub International logo" className="h-10 w-auto object-contain md:h-14" />
           </Link>
 
           {/* Desktop Nav */}
@@ -96,6 +98,9 @@ export function Layout({ children }: { children: ReactNode }) {
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center pt-20"
           >
+            <Link href="/" aria-label="OrtizHub International home" className="mb-10 inline-flex">
+              <img src={logoImg} alt="OrtizHub International logo" className="h-12 w-auto object-contain" />
+            </Link>
             <nav className="flex flex-col items-center gap-8 w-full px-6">
               {navLinks.map((link) => (
                 <Link
@@ -134,12 +139,11 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
-              <Link href="/" className="inline-block mb-4">
-                <img src={logoImg} alt="OrtizHub International" className="h-14 w-auto" />
+              <Link href="/" aria-label="OrtizHub International home" className="mb-4 inline-flex">
+                <img src={logoImg} alt="OrtizHub International logo" className="h-16 w-auto object-contain" />
               </Link>
-              <p className="text-muted-foreground max-w-sm mt-4 leading-relaxed">
-                Helping builders break generational cycles through wisdom and wealth.
-                Health. Discipline. Legacy. No shortcuts. No pretending.
+              <p className="mt-4 max-w-xl text-muted-foreground leading-relaxed">
+                {AUTHOR_BIO}
               </p>
             </div>
             

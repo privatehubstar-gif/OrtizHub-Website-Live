@@ -1,3 +1,5 @@
+import { GUMROAD_LINKS } from "@/data/gumroad-links";
+
 export type BlogPost = {
   id: string;
   title: string;
@@ -63,7 +65,7 @@ export const blogPosts: BlogPost[] = [
       "Day five, money: track two weeks of spending, cancel one subscription you do not use, and set up the smallest automatic transfer to savings. Day six, creation: make something small and finish it. Done beats perfect. Day seven, reflection: write what worked, choose three habits to keep, and schedule your next reset. Repeat it monthly. Clarity is not a destination you reach once. It is something you return to, and returning is what winning looks like.",
     ],
     relatedProductTitle: "The 7-Day Clarity Reset",
-    relatedProductHref: "https://ortizhub.gumroad.com/l/scskwk",
+    relatedProductHref: GUMROAD_LINKS.clarityReset,
     ctaLabel: "Get the Free 7-Day Clarity Reset",
     ctaExternal: true,
   },
@@ -77,7 +79,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     content: [
       "A physical product needs capital, inventory and shipping. A digital product needs something you already have: what you know, what you have lived, and the discipline to finish. That makes digital the most accessible place to start, especially if you are a student or building on a tight budget. You make it once and it can be sold many times, with no stock to hold and nothing to ship.",
-      "Here is how I would start. Pick one problem you have actually solved, not one you have only read about. Build the smallest useful version: a short guide, a workbook or a template. Finish it. Done and published beats perfect and sitting in a folder. Price it with confidence, because your work cost you time, energy and healing, and people trust what has a fair price. Put it where buyers already are: Gumroad for direct sales and a relationship with your buyer, Amazon KDP for wider discovery. And collect emails from day one, because your list is something you own.",
+      "Here is how I would start. Pick one problem you have actually solved, not one you have only read about. Build the smallest useful version: a short guide, a workbook or a template. Finish it. Done and published beats perfect and sitting in a folder. Price it with confidence, because your work cost you time, energy and healing, and people trust what has a fair price. Put it where buyers already are: Gumroad for direct sales and a relationship with your buyer. And collect emails from day one, because your list is something you own.",
       "One honest caution: digital is not magic. One product rarely changes everything. What changes things is showing up repeatedly, improving what you make, and treating each product as a step on a ladder rather than a lottery ticket. That is the path I am walking, one finished product at a time.",
     ],
     relatedProductTitle: "Gemini Creator Formula Workbook",

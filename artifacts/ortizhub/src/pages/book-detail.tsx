@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { books, BUNDLE_LINK } from "@/data/books";
 import { useState, useEffect, useRef } from "react";
 import { ShareButtons } from "@/components/share-buttons";
+import { AUTHOR_BIO } from "@/data/site";
 
 export default function BookDetail() {
   const { id } = useParams<{ id: string }>();
@@ -86,7 +87,7 @@ export default function BookDetail() {
                     className="h-10 px-6 bg-white text-black hover:bg-white/90 text-xs font-bold uppercase tracking-widest rounded-none gap-2"
                   >
                     <ShoppingCart size={14} />
-                    Buy on Amazon
+                    Get it on Gumroad
                   </Button>
                 </a>
               </div>
@@ -181,7 +182,7 @@ export default function BookDetail() {
                     className="w-full sm:w-auto h-14 px-10 bg-white text-black hover:bg-white/90 text-sm font-bold uppercase tracking-widest rounded-none gap-3"
                   >
                     <ShoppingCart size={18} />
-                    Buy on Amazon
+                    Get it on Gumroad
                   </Button>
                 </a>
                 <a
@@ -201,7 +202,7 @@ export default function BookDetail() {
               </div>
 
               <p className="text-xs text-muted-foreground uppercase tracking-widest">
-                Available on Amazon · Bundle on Gumroad
+                Available exclusively on Gumroad
               </p>
               <ShareButtons title={`${book.title} | OrtizHub`} />
             </motion.div>
@@ -261,11 +262,7 @@ export default function BookDetail() {
               </span>
               <h3 className="text-2xl font-bold text-white">Ortiz Imana Jnr</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Ortiz Imana Jnr is a Nigerian author, publisher, and digital
-                entrepreneur — and the CEO of OrtizHub International. He writes
-                at the intersection of faith, discipline, and legacy, helping
-                first-generation builders break generational cycles and build
-                lives worth passing down.
+                {AUTHOR_BIO}
               </p>
               <Link href="/about">
                 <button className="text-sm text-primary font-bold uppercase tracking-widest hover:underline underline-offset-4 mt-2">
@@ -336,13 +333,11 @@ export default function BookDetail() {
               Best Value
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white">
-              Get All 5 Books as a{" "}
+              Get the Complete{" "}
               <span className="text-primary">Bundle</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
-              The Ultimate Faith & Mindset Bundle includes every book in the
-              collection at a fraction of the individual price — available
-              exclusively on Gumroad.
+              Every core book bundled together at the best possible value. Available exclusively on Gumroad.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
               <span className="text-4xl font-bold text-white">$34.99</span>

@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { AUTHOR_BIO } from "@/data/site";
 import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
-import logoImg from "@assets/80C3D8EF-992D-45BC-A5D9-F9E0860C73B5_1783385337180.png";
 
 export default function About() {
+  const logoImg = "/images/logo.png";
+
   return (
     <div>
       {/* Hero — photo + logo */}
@@ -18,7 +21,9 @@ export default function About() {
             <p className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-2">Founder & CEO</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white">Ortiz Imana Jnr</h1>
           </div>
-          <img src={logoImg} alt="OrtizHub International" className="h-16 lg:h-20 w-auto opacity-90" />
+          <Link href="/" aria-label="OrtizHub International home" className="inline-flex">
+            <img src={logoImg} alt="OrtizHub International logo" className="h-12 w-auto object-contain opacity-95 md:h-16" />
+          </Link>
         </div>
       </div>
 
@@ -37,7 +42,7 @@ export default function About() {
 
         <div className="prose prose-invert prose-lg max-w-none">
           <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-            Ortiz Imana Jnr. is a Nigerian author, publisher, and digital entrepreneur — and the founder of Ortiz Hub International. His work is dedicated to helping young creators and first-generation builders develop the clarity, discipline, and identity they need to build meaningful careers and lasting lives.
+            {AUTHOR_BIO}
           </p>
 
           <div className="my-16 h-px w-full bg-border" />

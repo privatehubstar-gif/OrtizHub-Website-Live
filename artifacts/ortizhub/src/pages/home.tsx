@@ -3,6 +3,9 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ShareButtons } from "@/components/share-buttons";
+import { SystemsSection } from "@/components/systems-section";
+import { AUTHOR_BIO } from "@/data/site";
+import { GUMROAD_LINKS } from "@/data/gumroad-links";
 import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
 import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
@@ -11,8 +14,8 @@ import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_178338
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
 import bundleImage from "@assets/IMG_6630_1783382977469.png";
 
-const FREE_GUIDE_LINK = "https://ortizhub.gumroad.com/l/scskwk";
-const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
+const FREE_GUIDE_LINK = GUMROAD_LINKS.clarityReset;
+const BUNDLE_LINK = GUMROAD_LINKS.bundle;
 
 const featuredBooks = [
   { id: "eat-to-heal", title: "Eat to Heal", image: eatToHealCover },
@@ -104,7 +107,7 @@ function TestimonialsSection() {
 
 function CredibilityBar() {
   const items = [
-    "Available on Amazon and Gumroad",
+    "Available exclusively on Gumroad",
     "Free 7-Day Clarity Reset",
     "Faith · Discipline · Healing · Legacy",
   ];
@@ -243,8 +246,8 @@ export default function Home() {
               Grow. <br className="md:hidden" />
               <span className="text-primary">Rise.</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-              Helping builders break generational cycles through wisdom and wealth.
+            <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              {AUTHOR_BIO}
             </p>
             <div className="flex items-center justify-center gap-4 sm:gap-8 mb-12">
               {["Health", "Discipline", "Legacy"].map((value, i) => (
@@ -391,7 +394,7 @@ export default function Home() {
                 </h2>
 
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Five transformational books in one package — faith, discipline, health, clarity, and legacy. Everything you need to build the life you were meant for.
+                  Every core book bundled together at the best possible value. Everything you need to build faith, discipline, health, clarity, and legacy.
                 </p>
 
                 <ul className="space-y-2">
@@ -423,6 +426,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <SystemsSection />
 
       {/* Testimonials Section */}
       <TestimonialsSection />
