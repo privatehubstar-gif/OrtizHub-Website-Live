@@ -13,6 +13,7 @@ import Books from "@/pages/books";
 import BookDetail from "@/pages/book-detail";
 import DigitalProducts from "@/pages/digital-products";
 import Blog from "@/pages/blog";
+import BlogArticle from "@/pages/blog-article";
 import Contact from "@/pages/contact";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ function Router() {
         <Route path="/books" component={Books} />
         <Route path="/books/:id" component={BookDetail} />
         <Route path="/digital-products" component={DigitalProducts} />
+        <Route path="/blog/:id" component={BlogArticle} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />

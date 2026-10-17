@@ -1,6 +1,6 @@
-# [Project name]
+# OrtizHub
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+OrtizHub is Ortiz Imana Jnr's author and digital-products website for sharing books, resources, articles, and ways to connect.
 
 ## Run & Operate
 
@@ -22,23 +22,28 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/ortizhub/src/data/books.ts` — book catalog and book detail content.
+- `artifacts/ortizhub/src/data/blog-posts.ts` — blog article copy, metadata, and related-product links.
+- `artifacts/ortizhub/src/pages/` — Home, About, Books, book details, Digital Products, Blog, article details, and Contact pages.
+- `artifacts/ortizhub/src/components/share-buttons.tsx` — reusable page-sharing controls.
+- `artifacts/ortizhub/index.html` and `src/App.tsx` — Google Analytics tag and in-app page-view tracking.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Gumroad remains the checkout and digital-download delivery provider. Do not build Stripe checkout unless Ortiz asks to switch after the digital product files are ready.
+- The Blog listing and article detail pages read from the shared blog-posts data file.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Visitors can explore Ortiz Imana Jnr's books and digital products, read articles, subscribe to updates, contact Ortiz, and share selected pages with their audience.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the existing Gumroad checkout and delivery flow; leave the connected Stripe integration unused for now.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Update `blog-posts.ts` with each approved article as it is provided; do not publish sample or placeholder blog content.
 
 ## Pointers
 

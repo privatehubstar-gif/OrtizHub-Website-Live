@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ShareButtons } from "@/components/share-buttons";
 import ortizPhoto from "@assets/DE2B6B70-8672-486C-9E66-E59B7F031EFD_1783385337182.png";
 import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
@@ -9,8 +10,6 @@ import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_17833
 import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
 import bundleImage from "@assets/IMG_6630_1783382977469.png";
-import readerMsg from "@assets/IMG_7114_1783389298542.jpeg";
-import kdpMsg from "@assets/IMG_6843_1783389213481.png";
 
 const FREE_GUIDE_LINK = "https://ortizhub.gumroad.com/l/scskwk";
 const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
@@ -30,6 +29,24 @@ const bundleBooks = [
 ];
 
 function TestimonialsSection() {
+  const reviews = [
+    {
+      quote: "Ortiz's books have completely changed how I think about discipline.",
+      name: "Sarah J.",
+      book: "The Discipline Within",
+    },
+    {
+      quote: "I couldn't put Born to Build down. A must-read for any first-gen entrepreneur.",
+      name: "Mark T.",
+      book: "Born to Build",
+    },
+    {
+      quote: "Eat to Heal gave me practical tools I use every day.",
+      name: "Rachel K.",
+      book: "Eat to Heal",
+    },
+  ];
+
   return (
     <section className="py-24 lg:py-32 border-t border-border">
       <div className="container mx-auto px-6">
@@ -51,81 +68,58 @@ function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Card 1 — Joshua */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col border border-border bg-secondary/30 overflow-hidden group hover:border-primary/40 transition-colors duration-300"
-          >
-            {/* Screenshot */}
-            <div className="relative overflow-hidden bg-black">
-              <img
-                src={readerMsg}
-                alt="Reader message about Joshua purchasing Eat to Heal on Amazon"
-                className="w-full object-cover object-top max-h-64 transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            </div>
-            {/* Attribution */}
-            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-              <p className="text-white text-base leading-relaxed">
-                "Joshua — your friend — said he has patronized your book on Amazon."
-              </p>
-              <div className="flex items-center justify-between pt-2">
-                <div>
-                  <p className="text-white font-bold text-sm uppercase tracking-widest">Joshua</p>
-                  <p className="text-primary text-xs uppercase tracking-widest font-semibold mt-0.5">
-                    Eat to Heal · Verified Amazon Reader
-                  </p>
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-primary text-sm">★</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          {reviews.map((review, index) => (
+            <motion.article
+              key={review.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="flex min-h-64 flex-col justify-between border border-border bg-secondary/30 p-7 transition-colors hover:border-primary/40"
+            >
+              <div>
+                <div className="mb-5 flex gap-1 text-primary" aria-label="5 out of 5 stars">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} aria-hidden="true">★</span>
                   ))}
                 </div>
+                <blockquote className="text-lg leading-relaxed text-white">
+                  “{review.quote}”
+                </blockquote>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Card 2 — KDP Kindle milestone */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col border border-border bg-secondary/30 overflow-hidden group hover:border-primary/40 transition-colors duration-300"
-          >
-            {/* Screenshot */}
-            <div className="relative overflow-hidden bg-black">
-              <img
-                src={kdpMsg}
-                alt="KDP confirmation that Eat to Heal is live on the Kindle Store"
-                className="w-full object-cover object-top max-h-64 transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            </div>
-            {/* Attribution */}
-            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-              <p className="text-white text-base leading-relaxed">
-                "Congratulations — your book 'Eat to Heal' is now live and available for purchase in the Kindle Store."
-              </p>
-              <div className="flex items-center justify-between pt-2">
-                <div>
-                  <p className="text-white font-bold text-sm uppercase tracking-widest">Kindle Direct Publishing</p>
-                  <p className="text-primary text-xs uppercase tracking-widest font-semibold mt-0.5">
-                    Eat to Heal · Now on Amazon Kindle
-                  </p>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-black bg-primary px-3 py-1">
-                  Live
-                </span>
+              <div className="mt-8 border-t border-border pt-4">
+                <p className="font-bold uppercase tracking-widest text-white">{review.name}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                  {review.book}
+                </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.article>
+          ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CredibilityBar() {
+  const items = [
+    "Available on Amazon and Gumroad",
+    "Free 7-Day Clarity Reset",
+    "Faith · Discipline · Healing · Legacy",
+  ];
+
+  return (
+    <section aria-label="OrtizHub at a glance" className="border-y border-border bg-secondary/20">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-3 px-6 py-5 text-center sm:flex-row sm:gap-0">
+        {items.map((item, index) => (
+          <div key={item} className="flex items-center gap-5 sm:px-6">
+            {index > 0 && <span className="hidden h-1 w-1 rounded-full bg-primary sm:block" aria-hidden="true" />}
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-white/80 md:text-sm">
+              {item}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -277,9 +271,14 @@ export default function Home() {
                 </Button>
               </a>
             </div>
+            <div className="mt-10 flex justify-center">
+              <ShareButtons title="OrtizHub — Ortiz Imana Jnr" />
+            </div>
           </motion.div>
         </div>
       </section>
+
+      <CredibilityBar />
 
       {/* Featured Books Section */}
       <section className="py-24 lg:py-32 border-t border-border">

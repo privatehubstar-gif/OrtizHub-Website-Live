@@ -7,6 +7,7 @@ import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
 import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
 import geminiWorkbookCover from "@assets/IMG_6694_1783382977469.jpeg";
+import { ShareButtons } from "@/components/share-buttons";
 
 const BUNDLE_LINK = "https://ortizhub.gumroad.com/l/bundlevol1";
 
@@ -102,6 +103,9 @@ export default function DigitalProducts() {
         <p className="text-xl text-muted-foreground">
           Tactical systems, courses, and frameworks designed to accelerate your growth and build leverage.
         </p>
+        <div className="mt-8">
+          <ShareButtons title="Digital Products and Workbooks | OrtizHub" />
+        </div>
       </div>
 
       {/* Featured Bundle Banner */}

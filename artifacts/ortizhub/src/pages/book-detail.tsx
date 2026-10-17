@@ -4,6 +4,7 @@ import { ArrowLeft, ShoppingCart, CheckCircle, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { books, BUNDLE_LINK } from "@/data/books";
 import { useState, useEffect, useRef } from "react";
+import { ShareButtons } from "@/components/share-buttons";
 
 export default function BookDetail() {
   const { id } = useParams<{ id: string }>();
@@ -202,6 +203,7 @@ export default function BookDetail() {
               <p className="text-xs text-muted-foreground uppercase tracking-widest">
                 Available on Amazon · Bundle on Gumroad
               </p>
+              <ShareButtons title={`${book.title} | OrtizHub`} />
             </motion.div>
           </div>
         </div>

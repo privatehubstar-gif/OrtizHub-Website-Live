@@ -2,77 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "wouter";
+import { blogPosts } from "@/data/blog-posts";
 
-const categories = ["All", "Mindset", "Faith", "Health", "Wealth", "Discipline"];
-
-const posts = [
-  {
-    id: "faith-and-ambition",
-    title: "Reconciling Faith with Immense Ambition",
-    excerpt:
-      "Many believe that wanting to build wealth conflicts with a faith-driven life. I argue the opposite — poverty limits your ability to serve. Wealth, rightly pursued, is a tool for impact.",
-    date: "June 10, 2025",
-    readTime: "7 min read",
-    category: "Faith",
-    featured: true,
-    link: "#",
-  },
-  {
-    id: "the-myth-of-balance",
-    title: "The Myth of Balance in the Early Days",
-    excerpt:
-      "When you are trying to break generational cycles, 'balance' is a luxury you cannot afford yet. Here is why obsession is not a flaw — it is a requirement.",
-    date: "May 28, 2025",
-    readTime: "5 min read",
-    category: "Discipline",
-    featured: false,
-    link: "#",
-  },
-  {
-    id: "dopamine-detox",
-    title: "The 7-Day Protocol to Reset Your Brain",
-    excerpt:
-      "You are not lazy. Your baseline dopamine is fried. A practical framework to cut cheap inputs, reclaim your focus, and return to deep, purposeful work.",
-    date: "April 15, 2025",
-    readTime: "10 min read",
-    category: "Health",
-    featured: false,
-    link: "#",
-  },
-  {
-    id: "digital-leverage",
-    title: "Why Your First Product Should Be Digital",
-    excerpt:
-      "Physical goods require capital, logistics, and supply chains. Digital products require only execution. How to start building your empire with zero marginal cost.",
-    date: "March 22, 2025",
-    readTime: "6 min read",
-    category: "Wealth",
-    featured: false,
-    link: "#",
-  },
-  {
-    id: "identity-shift",
-    title: "The Identity Shift That Changes Everything",
-    excerpt:
-      "Before your income changes, your identity must. Most people try to learn new habits without changing who they believe they are. That is why they always revert.",
-    date: "February 14, 2025",
-    readTime: "8 min read",
-    category: "Mindset",
-    featured: false,
-    link: "#",
-  },
-  {
-    id: "eat-to-build",
-    title: "Eat to Build: Nutrition for High-Performing Builders",
-    excerpt:
-      "Your body is the machine everything else runs on. What you eat determines your energy, clarity, and output. These are the fundamentals I live by daily.",
-    date: "January 30, 2025",
-    readTime: "6 min read",
-    category: "Health",
-    featured: false,
-    link: "#",
-  },
-];
+const categories = ["All", ...new Set(blogPosts.map((post) => post.category))];
 
 const categoryColors: Record<string, string> = {
   Faith: "text-amber-400 bg-amber-400/10 border-amber-400/30",
@@ -85,11 +18,13 @@ const categoryColors: Record<string, string> = {
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const featuredPost = posts.find((p) => p.featured);
-  const filteredPosts = posts.filter(
-    (p) =>
-      !p.featured &&
-      (activeCategory === "All" || p.category === activeCategory)
+  const featuredPost = blogPosts.find((post) => post.featured);
+  const showFeatured =
+    featuredPost && (activeCategory === "All" || featuredPost.category === activeCategory);
+  const filteredPosts = blogPosts.filter(
+    (post) =>
+      post.id !== featuredPost?.id &&
+      (activeCategory === "All" || post.category === activeCategory),
   );
 
   return (
@@ -118,19 +53,21 @@ export default function Blog() {
       </section>
 
       {/* Featured Post */}
-      {featuredPost && (
+      {showFeatured && featuredPost && (
         <section className="py-16 lg:py-24 border-b border-border">
           <div className="container mx-auto px-6 max-w-5xl">
             <p className="text-xs text-primary font-bold uppercase tracking-widest mb-8">
               Featured Article
             </p>
-            <motion.a
-              href={featuredPost.link}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="group block relative rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden bg-secondary/30 p-10 lg:p-16"
             >
+              <Link
+                href={`/blog/${featuredPost.id}`}
+                className="group block relative rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 overflow-hidden bg-secondary/30 p-10 lg:p-16"
+              >
               {/* Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
 
@@ -168,7 +105,8 @@ export default function Blog() {
                   </div>
                 </div>
               </div>
-            </motion.a>
+              </Link>
+            </motion.div>
           </div>
         </section>
       )}
@@ -197,14 +135,16 @@ export default function Blog() {
           {filteredPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {filteredPosts.map((post, index) => (
-                <motion.a
+                <motion.div
                   key={post.id}
-                  href={post.link}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="group block border border-border hover:border-primary/50 transition-all duration-300 p-8 bg-secondary/20 hover:bg-secondary/40"
                 >
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="group block h-full border border-border hover:border-primary/50 transition-all duration-300 p-8 bg-secondary/20 hover:bg-secondary/40"
+                  >
                   <div className="flex flex-wrap items-center gap-3 mb-5">
                     <span
                       className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${
@@ -236,7 +176,8 @@ export default function Blog() {
                       Read <ArrowRight size={13} />
                     </span>
                   </div>
-                </motion.a>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           ) : (
