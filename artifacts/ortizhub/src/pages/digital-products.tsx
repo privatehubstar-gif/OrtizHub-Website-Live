@@ -103,7 +103,11 @@ export default function DigitalProducts() {
           Tactical systems, courses, and frameworks designed to accelerate your growth and build leverage.
         </p>
         <div className="mt-8">
-          <ShareButtons title="Digital Products and Workbooks | OrtizHub" />
+          <ShareButtons
+            title="Digital Products and Workbooks | OrtizHub"
+            contentType="page"
+            contentId="digital-products"
+          />
         </div>
       </div>
 

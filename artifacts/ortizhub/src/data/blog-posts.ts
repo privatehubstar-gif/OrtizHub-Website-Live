@@ -12,6 +12,8 @@ export type BlogPost = {
   content: string[];
   relatedProductTitle: string;
   relatedProductHref: string;
+  relatedProductId: string;
+  relatedProductType: "book" | "digital_product" | "free_download";
   ctaLabel: string;
   ctaExternal?: boolean;
 };
@@ -34,6 +36,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "Blessed Boy",
     relatedProductHref: "/books/blessed-boy",
+    relatedProductId: "blessed-boy",
+    relatedProductType: "book",
     ctaLabel: "Read Blessed Boy",
   },
   {
@@ -52,6 +56,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "The Discipline Within",
     relatedProductHref: "/books/the-discipline-within",
+    relatedProductId: "the-discipline-within",
+    relatedProductType: "book",
     ctaLabel: "Read The Discipline Within",
   },
   {
@@ -70,6 +76,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "The 7-Day Clarity Reset",
     relatedProductHref: GUMROAD_LINKS.clarityReset,
+    relatedProductId: "clarity-reset",
+    relatedProductType: "free_download",
     ctaLabel: "Get the Free 7-Day Clarity Reset",
     ctaExternal: true,
   },
@@ -89,6 +97,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "Gemini Creator Formula Workbook",
     relatedProductHref: "/digital-products",
+    relatedProductId: "gemini-creator-formula-workbook",
+    relatedProductType: "digital_product",
     ctaLabel: "See the Gemini Creator Formula Workbook",
   },
   {
@@ -107,6 +117,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "The Discipline Within",
     relatedProductHref: "/books/the-discipline-within",
+    relatedProductId: "the-discipline-within",
+    relatedProductType: "book",
     ctaLabel: "Read The Discipline Within",
   },
   {
@@ -125,6 +137,8 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedProductTitle: "Eat to Heal",
     relatedProductHref: "/books/eat-to-heal",
+    relatedProductId: "eat-to-heal",
+    relatedProductType: "book",
     ctaLabel: "Read Eat to Heal",
   },
 ];

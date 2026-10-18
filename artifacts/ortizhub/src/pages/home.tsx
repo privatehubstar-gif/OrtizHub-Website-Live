@@ -275,7 +275,11 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-10 flex justify-center">
-              <ShareButtons title="OrtizHub — Ortiz Imana Jnr" />
+              <ShareButtons
+                title="OrtizHub — Ortiz Imana Jnr"
+                contentType="page"
+                contentId="home"
+              />
             </div>
           </motion.div>
         </div>

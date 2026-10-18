@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ShareButtons } from "@/components/share-buttons";
 import { blogPosts } from "@/data/blog-posts";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 function updateMetaContent(selector: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(selector);
@@ -81,6 +82,16 @@ export default function BlogArticle() {
     );
   }
 
+  const article = post;
+  const trackRelatedProductClick = () => {
+    trackAnalyticsEvent("article_cta_click", {
+      article_id: article.id,
+      product_id: article.relatedProductId,
+      product_type: article.relatedProductType,
+      destination: article.ctaExternal ? "gumroad" : "ortizhub",
+    });
+  };
+
   return (
     <article className="min-h-screen">
       <div className="container mx-auto max-w-4xl px-6 pb-24 pt-32 lg:pt-40">
@@ -112,7 +123,11 @@ export default function BlogArticle() {
               {post.readTime}
             </span>
           </div>
-          <ShareButtons title={`${post.title} | OrtizHub`} />
+          <ShareButtons
+            title={`${post.title} | OrtizHub`}
+            contentType="article"
+            contentId={post.id}
+          />
         </header>
 
         <div className="mx-auto max-w-3xl py-12">
@@ -163,14 +178,22 @@ export default function BlogArticle() {
             <h2 className="text-2xl font-bold text-white">{post.relatedProductTitle}</h2>
           </div>
           {post.ctaExternal ? (
-            <a href={post.relatedProductHref} target="_blank" rel="noopener noreferrer">
+            <a
+              href={post.relatedProductHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={trackRelatedProductClick}
+            >
               <Button className="min-h-12 rounded-none bg-primary px-7 font-bold uppercase tracking-widest text-black hover:bg-primary/90">
                 {post.ctaLabel}
               </Button>
             </a>
           ) : (
             <Link href={post.relatedProductHref}>
-              <Button className="min-h-12 rounded-none bg-primary px-7 font-bold uppercase tracking-widest text-black hover:bg-primary/90">
+              <Button
+                onClick={trackRelatedProductClick}
+                className="min-h-12 rounded-none bg-primary px-7 font-bold uppercase tracking-widest text-black hover:bg-primary/90"
+              >
                 {post.ctaLabel}
               </Button>
             </Link>

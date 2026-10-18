@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Check, Copy, Link2 } from "lucide-react";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 type ShareButtonsProps = {
   title: string;
+  contentType: "article" | "book" | "page";
+  contentId: string;
 };
 
-export function ShareButtons({ title }: ShareButtonsProps) {
+export function ShareButtons({ title, contentType, contentId }: ShareButtonsProps) {
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
   const pageUrl = typeof window === "undefined" ? "" : window.location.href;
   const shareText = `${title} ${pageUrl}`;
@@ -30,6 +33,10 @@ export function ShareButtons({ title }: ShareButtonsProps) {
         if (!copied) throw new Error("Clipboard copy was not available");
       }
       setCopyState("copied");
+      trackAnalyticsEvent("copy_link", {
+        content_type: contentType,
+        item_id: contentId,
+      });
     } catch {
       setCopyState("error");
     }
@@ -39,18 +46,22 @@ export function ShareButtons({ title }: ShareButtonsProps) {
   const shareLinks = [
     {
       label: "X",
+      method: "x",
       href: `https://twitter.com/intent/tweet?text=${encodedText}`,
     },
     {
       label: "WhatsApp",
+      method: "whatsapp",
       href: `https://wa.me/?text=${encodedText}`,
     },
     {
       label: "Facebook",
+      method: "facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedTitle}`,
     },
     {
       label: "LinkedIn",
+      method: "linkedin",
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&title=${encodedTitle}`,
     },
   ];
@@ -76,6 +87,13 @@ export function ShareButtons({ title }: ShareButtonsProps) {
             href={share.href}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackAnalyticsEvent("share", {
+                method: share.method,
+                content_type: contentType,
+                item_id: contentId,
+              });
+            }}
             className="inline-flex min-h-10 items-center gap-2 border border-border px-3 text-sm text-foreground transition-colors hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={`Share on ${share.label}`}
           >

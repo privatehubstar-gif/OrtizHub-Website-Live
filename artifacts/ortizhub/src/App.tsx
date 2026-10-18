@@ -18,12 +18,6 @@ import Contact from "@/pages/contact";
 
 const queryClient = new QueryClient();
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 function AnalyticsPageView() {
   const [location] = useLocation();
 

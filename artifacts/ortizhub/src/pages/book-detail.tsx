@@ -204,7 +204,11 @@ export default function BookDetail() {
               <p className="text-xs text-muted-foreground uppercase tracking-widest">
                 Available exclusively on Gumroad
               </p>
-              <ShareButtons title={`${book.title} | OrtizHub`} />
+              <ShareButtons
+                title={`${book.title} | OrtizHub`}
+                contentType="book"
+                contentId={book.id}
+              />
             </motion.div>
           </div>
         </div>
