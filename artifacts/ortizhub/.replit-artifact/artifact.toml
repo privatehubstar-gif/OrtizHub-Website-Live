@@ -23,6 +23,30 @@ publicDir = "artifacts/ortizhub/dist/public"
 serve = "static"
 
 [[services.production.rewrites]]
+from = "/blog/faith-and-ambition"
+to = "/blog/faith-and-ambition/index.html"
+
+[[services.production.rewrites]]
+from = "/blog/forget-balance-build-rhythm"
+to = "/blog/forget-balance-build-rhythm/index.html"
+
+[[services.production.rewrites]]
+from = "/blog/seven-day-clarity-reset"
+to = "/blog/seven-day-clarity-reset/index.html"
+
+[[services.production.rewrites]]
+from = "/blog/why-your-first-product-should-be-digital"
+to = "/blog/why-your-first-product-should-be-digital/index.html"
+
+[[services.production.rewrites]]
+from = "/blog/identity-shift-changes-everything"
+to = "/blog/identity-shift-changes-everything/index.html"
+
+[[services.production.rewrites]]
+from = "/blog/eat-to-build-nutrition"
+to = "/blog/eat-to-build-nutrition/index.html"
+
+[[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
 

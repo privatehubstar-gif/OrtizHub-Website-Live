@@ -5,15 +5,65 @@ import { Button } from "@/components/ui/button";
 import { ShareButtons } from "@/components/share-buttons";
 import { blogPosts } from "@/data/blog-posts";
 
+function updateMetaContent(selector: string, content: string) {
+  let tag = document.head.querySelector<HTMLMetaElement>(selector);
+  const created = !tag;
+
+  if (!tag) {
+    tag = document.createElement("meta");
+    const [, attribute, value] = selector.match(/meta\[(name|property)="([^"]+)"\]/) ?? [];
+    if (!attribute || !value) return () => {};
+    tag.setAttribute(attribute, value);
+    document.head.appendChild(tag);
+  }
+
+  const previousContent = tag.getAttribute("content");
+  tag.setAttribute("content", content);
+
+  return () => {
+    if (created) {
+      tag?.remove();
+    } else if (previousContent !== null) {
+      tag?.setAttribute("content", previousContent);
+    } else {
+      tag?.removeAttribute("content");
+    }
+  };
+}
+
 export default function BlogArticle() {
   const { id } = useParams<{ id: string }>();
   const post = blogPosts.find((article) => article.id === id);
   const readNext = blogPosts.filter((article) => article.id !== post?.id).slice(0, 2);
 
   useEffect(() => {
+    const previousTitle = document.title;
+    const restoreMeta = post
+      ? [
+          updateMetaContent('meta[name="description"]', post.excerpt),
+          updateMetaContent('meta[property="og:title"]', `${post.title} | OrtizHub`),
+          updateMetaContent('meta[property="og:description"]', post.excerpt),
+          updateMetaContent('meta[property="og:type"]', "article"),
+          updateMetaContent(
+            'meta[property="og:image"]',
+            new URL(post.shareImage, window.location.origin).href,
+          ),
+          updateMetaContent('meta[property="og:image:width"]', "1200"),
+          updateMetaContent('meta[property="og:image:height"]', "630"),
+          updateMetaContent('meta[property="og:url"]', window.location.href),
+          updateMetaContent('meta[name="twitter:title"]', `${post.title} | OrtizHub`),
+          updateMetaContent('meta[name="twitter:description"]', post.excerpt),
+          updateMetaContent(
+            'meta[name="twitter:image"]',
+            new URL(post.shareImage, window.location.origin).href,
+          ),
+        ]
+      : [];
+
     if (post) document.title = `${post.title} | OrtizHub`;
     return () => {
-      document.title = "OrtizHub — Ortiz Imana Jnr";
+      restoreMeta.reverse().forEach((restore) => restore());
+      document.title = previousTitle;
     };
   }, [post]);
 

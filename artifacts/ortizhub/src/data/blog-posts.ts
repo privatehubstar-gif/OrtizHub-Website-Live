@@ -1,9 +1,10 @@
-import { GUMROAD_LINKS } from "@/data/gumroad-links";
+import { GUMROAD_LINKS } from "./gumroad-links";
 
 export type BlogPost = {
   id: string;
   title: string;
   excerpt: string;
+  shareImage: string;
   category: string;
   date: string;
   readTime: string;
@@ -21,6 +22,7 @@ export const blogPosts: BlogPost[] = [
     title: "Reconciling Faith with Immense Ambition",
     excerpt:
       "Many believe that wanting to build wealth conflicts with a faith-driven life. I believe the opposite: poverty limits your ability to serve, and money, rightly handled, is a tool for impact.",
+    shareImage: "/images/blog-share/faith-and-ambition.jpg",
     category: "Faith",
     date: "October 17, 2026",
     readTime: "5 min read",
@@ -39,6 +41,7 @@ export const blogPosts: BlogPost[] = [
     title: "Forget Balance. Build Rhythm.",
     excerpt:
       "Balance asks whether everything is equal. Rhythm asks whether the next hour is pointed at what matters. A simple daily shape for builders with limited time.",
+    shareImage: "/images/blog-share/forget-balance-build-rhythm.jpg",
     category: "Discipline",
     date: "October 17, 2026",
     readTime: "5 min read",
@@ -56,6 +59,7 @@ export const blogPosts: BlogPost[] = [
     title: "The 7-Day Clarity Reset: Cut the Noise, Find Your Direction",
     excerpt:
       "You are not lazy. You may simply be over-stimulated and under-directed. Seven days, one focused action per day, to get your mind back.",
+    shareImage: "/images/blog-share/seven-day-clarity-reset.jpg",
     category: "Mindset",
     date: "October 17, 2026",
     readTime: "6 min read",
@@ -74,6 +78,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Your First Product Should Be Digital",
     excerpt:
       "Physical goods need capital and logistics. Digital products need execution. How to start with what you already know and the discipline to finish.",
+    shareImage: "/images/blog-share/why-your-first-product-should-be-digital.jpg",
     category: "Wealth",
     date: "October 17, 2026",
     readTime: "6 min read",
@@ -91,6 +96,7 @@ export const blogPosts: BlogPost[] = [
     title: "The Identity Shift That Changes Everything",
     excerpt:
       "Most people try to change their habits and hope their identity follows. It works the other way around.",
+    shareImage: "/images/blog-share/identity-shift-changes-everything.jpg",
     category: "Mindset",
     date: "October 17, 2026",
     readTime: "6 min read",
@@ -108,6 +114,7 @@ export const blogPosts: BlogPost[] = [
     title: "Eat to Build: Nutrition for High-Performing Builders",
     excerpt:
       "Your body is the machine everything else runs on. Simple, affordable anti-inflammatory habits for steady energy and clear focus.",
+    shareImage: "/images/blog-share/eat-to-build-nutrition.jpg",
     category: "Health",
     date: "October 17, 2026",
     readTime: "6 min read",
