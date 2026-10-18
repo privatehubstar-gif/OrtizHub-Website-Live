@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { books, BUNDLE_LINK } from "@/data/books";
-import bundleImage from "@assets/IMG_6630_1783382977469.png";
+const bundleImage = "/images/bundle-promo-clean.png";
 
 export default function Books() {
   return (

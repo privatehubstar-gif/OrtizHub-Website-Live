@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import bundleImage from "@assets/IMG_6630_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
 import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
 import eatToHealCover from "@assets/Untitled_design_1783383336903.jpeg";
@@ -9,6 +8,8 @@ import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_17833
 import geminiWorkbookCover from "@assets/IMG_6694_1783382977469.jpeg";
 import { ShareButtons } from "@/components/share-buttons";
 import { GUMROAD_LINKS } from "@/data/gumroad-links";
+
+const bundleImage = "/images/bundle-promo-clean.png";
 
 const freeProduct = {
   id: "clarity-reset",

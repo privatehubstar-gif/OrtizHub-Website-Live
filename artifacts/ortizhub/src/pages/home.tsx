@@ -12,7 +12,7 @@ import disciplineWithinCover from "@assets/Untitled_design_1783383833804.jpeg";
 import bornToBuildCover from "@assets/85A4B0E9-4B52-4BD9-BEF2-9B524D235864_1783382977469.png";
 import blessedBoyCover from "@assets/1ED08B71-FE14-4EEC-A05D-7480AB1BCEDD_1783382977469.png";
 import clarityResetCover from "@assets/44160B54-A9BC-4F14-A2D1-A4940B5D7DD7_1783382977469.png";
-import bundleImage from "@assets/IMG_6630_1783382977469.png";
+const bundleImage = "/images/bundle-promo-clean.png";
 
 const FREE_GUIDE_LINK = GUMROAD_LINKS.clarityReset;
 const BUNDLE_LINK = GUMROAD_LINKS.bundle;
